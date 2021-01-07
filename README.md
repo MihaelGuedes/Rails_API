@@ -1,24 +1,12 @@
-# README
+# Rails API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+projeto realizado no curso Desenvolvendo RESTful APIs com Ruby on Rails.
 
-Things you may want to cover:
+##Ferramentas utilizadas:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby 2.7.1
+- Rails 6.0.3
+- VS Code
+- Postman
+- Curl
+- Sqlite3 Browser
