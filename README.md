@@ -2,7 +2,7 @@
 
 projeto realizado no curso Desenvolvendo RESTful APIs com Ruby on Rails.
 
-##Ferramentas utilizadas:
+## Ferramentas utilizadas:
 
 - Ruby 2.7.1
 - Rails 6.0.3
