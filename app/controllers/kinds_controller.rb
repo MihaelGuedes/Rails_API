@@ -1,4 +1,20 @@
 class KindsController < ApplicationController
+  # Basic
+  # include ActionController::HttpAuthentication::Basic::ControllerMethods
+  # http_basic_authenticate_with name: "Mihael", password: "senha" #except: :index
+
+  #Digest
+  # include ActionController::HttpAuthentication::Digest::ControllerMethods
+  # USERS = { "Mihael" => Digest::MD5.hexdigest(["Mihael","Application","senha"].join(":"))}
+  #before_action :authenticate
+  
+  # Token
+  # TOKEN = "secret"
+
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  before_action :authenticate
+
+
   before_action :set_kind, only: [:show, :update, :destroy]
 
   # GET /kinds
@@ -51,5 +67,15 @@ class KindsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def kind_params
       params.require(:kind).permit(:description)
+    end
+
+    def authenticate
+      authenticate_or_request_with_http_token do |token, options|
+        hmac_secret = "my$ecretK3y"
+        JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+    #     # Compare the tokens in a time-constant manner, to mitigate
+    #     # timing attacks.
+    #     ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+      end
     end
 end
